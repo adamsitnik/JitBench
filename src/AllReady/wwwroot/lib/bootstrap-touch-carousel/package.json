@@ -1,0 +1,67 @@
+{
+  "_from": "bootstrap-touch-carousel@0.8.0",
+  "_id": "bootstrap-touch-carousel@0.8.0",
+  "_inBundle": false,
+  "_integrity": "sha1-4kGLa3cmCsqw/OAlDvlaEaz3QmA=",
+  "_location": "/bootstrap-touch-carousel",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "bootstrap-touch-carousel@0.8.0",
+    "name": "bootstrap-touch-carousel",
+    "escapedName": "bootstrap-touch-carousel",
+    "rawSpec": "0.8.0",
+    "saveSpec": null,
+    "fetchSpec": "0.8.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bootstrap-touch-carousel/-/bootstrap-touch-carousel-0.8.0.tgz",
+  "_shasum": "e2418b6b77260acab0fce0250ef95a11acf74260",
+  "_spec": "bootstrap-touch-carousel@0.8.0",
+  "_where": "C:\\Projects\\forks\\allReady\\AllReadyApp\\Web-App\\AllReady",
+  "author": {
+    "url": "ixisio"
+  },
+  "bugs": {
+    "url": "https://github.com/ixisio/bootstrap-touch-carousel/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A drop-in perfection for Twitter Bootstrap's Carousel (v3) to enable gestures on touch devices.",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bump": "0.0.13",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "homepage": "https://github.com/ixisio/bootstrap-touch-carousel#readme",
+  "keywords": [
+    "bootstrap",
+    "touch",
+    "carousel"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ixisio/bootstrap-touch-carousel/blob/master/LICENSE-MIT"
+    }
+  ],
+  "name": "bootstrap-touch-carousel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ixisio/bootstrap-touch-carousel.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "version": "0.8.0"
+}

@@ -1,0 +1,72 @@
+{
+  "_from": "knockout-mapping@2.5.0",
+  "_id": "knockout-mapping@2.5.0",
+  "_inBundle": false,
+  "_integrity": "sha1-MSG0O7WAH31/LFqQn982ekHquXQ=",
+  "_location": "/knockout-mapping",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "knockout-mapping@2.5.0",
+    "name": "knockout-mapping",
+    "escapedName": "knockout-mapping",
+    "rawSpec": "2.5.0",
+    "saveSpec": null,
+    "fetchSpec": "2.5.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/knockout-mapping/-/knockout-mapping-2.5.0.tgz",
+  "_shasum": "3121b43bb5801f7d7f2c5a909fdf367a41eab974",
+  "_spec": "knockout-mapping@2.5.0",
+  "_where": "C:\\Projects\\forks\\allReady\\AllReadyApp\\Web-App\\AllReady",
+  "bugs": {
+    "url": "https://github.com/crissdev/knockout.mapping/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Knockout Mapping plugin",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
+    "gulp-jshint": "^1.9.2",
+    "gulp-plumber": "^0.6.6",
+    "gulp-qunit": "^1.2.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.2",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.1.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "HISTORY.md"
+  ],
+  "homepage": "https://github.com/crissdev/knockout.mapping#readme",
+  "keywords": [
+    "knockout",
+    "mapping",
+    "knockout-mapping",
+    "knockout.mapping",
+    "plugin",
+    "ko"
+  ],
+  "license": "MIT",
+  "main": "dist/knockout.mapping.js",
+  "name": "knockout-mapping",
+  "peerDependencies": {
+    "knockout": ">=2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crissdev/knockout.mapping.git"
+  },
+  "scripts": {
+    "test": "gulp test-ci"
+  },
+  "version": "2.5.0"
+}

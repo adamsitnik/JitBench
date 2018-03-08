@@ -1,0 +1,59 @@
+{
+  "_from": "knockout-bootstrap@0.2.0",
+  "_id": "knockout-bootstrap@0.2.0",
+  "_inBundle": false,
+  "_integrity": "sha1-ACGUGr8Qb2l5J6to7/24abjaAZA=",
+  "_location": "/knockout-bootstrap",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "knockout-bootstrap@0.2.0",
+    "name": "knockout-bootstrap",
+    "escapedName": "knockout-bootstrap",
+    "rawSpec": "0.2.0",
+    "saveSpec": null,
+    "fetchSpec": "0.2.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/knockout-bootstrap/-/knockout-bootstrap-0.2.0.tgz",
+  "_shasum": "0021941abf106f697927ab68effdb869b8da0190",
+  "_spec": "knockout-bootstrap@0.2.0",
+  "_where": "C:\\Projects\\forks\\allReady\\AllReadyApp\\Web-App\\AllReady",
+  "author": {
+    "name": "Bill Pullen"
+  },
+  "bugs": {
+    "url": "https://github.com/billpull/knockout-bootstrap/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jQuery": ">= 1.7.4",
+    "twitter-bootstrap": ">= 2.1.1"
+  },
+  "deprecated": false,
+  "description": "Knockout Bindings for Bootstrap Widgets",
+  "directories": {
+    "example": "examples"
+  },
+  "homepage": "https://github.com/billpull/knockout-bootstrap#readme",
+  "keywords": [
+    "knockout",
+    "bootstrap",
+    "knockout-bootstrap",
+    "bindings"
+  ],
+  "license": "MIT",
+  "main": "src/knockout-bootstrap.js",
+  "name": "knockout-bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billpull/knockout-bootstrap.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.2.0"
+}
