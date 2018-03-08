@@ -1,0 +1,9 @@
+@using AllReady.ViewModels.Campaign
+@model CampaignViewModel
+@inject AllReady.Services.ISelectListService SelectListService
+
+@{
+    var isEdit = Model != null && Model.Id > 0;
+}
+
+@Html.Partial("_CampaignDetails", Model)
