@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AllReady.Core\AllReady.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="MediatR" Version="2.1.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
