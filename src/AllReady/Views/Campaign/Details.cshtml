@@ -1,0 +1,43 @@
+@using System
+@using AllReady.ViewModels.Campaign
+@model CampaignViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<div class="row">
+    <div class="col-12">
+        <ol class="breadcrumb">
+            <li><a asp-page="/Index">Home</a></li>
+            <li><a asp-controller="Organization" asp-action="Index">Organizations</a></li>
+            <li><a asp-controller="Organization" asp-action="ShowOrganization" asp-route-id="@Model.ManagingOrganizationId">@Model.ManagingOrganizationName</a></li>
+            <li><a asp-controller="Campaign" asp-action="Index">Campaigns</a></li>
+            <li>@Model.Name</li>
+        </ol>
+    </div>
+</div>
+
+@Html.Partial("_CampaignDetails", Model)
+
+@section scripts {
+    <script>
+        var modelEvents = @Json.Serialize(Model.Events);
+    </script>
+    <script type="text/javascript" src="~/lib/systemjs/dist/system.js"></script>
+    <script type="text/javascript" src="~/js/campaign.js"></script>
+
+    <script>
+        System.config({
+            baseURL: location.protocol + "//" + location.host + '/js/'
+        });
+
+        System.import('Controls/Thermometer.js').then(function(sys) {
+            if ($("[data-control=thermometer]"))
+                $("[data-control=thermometer]").each(function() {
+                    new sys.AllReady.Controls.Thermometer($(this));
+                });
+        });
+    </script>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+}

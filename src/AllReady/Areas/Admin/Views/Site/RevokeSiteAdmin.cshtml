@@ -1,0 +1,12 @@
+﻿@using AllReady.Constants
+@{
+    ViewBag.Title = "Revoke Site Admin";
+}
+<h2>Revoke Site Admin</h2>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        <div>@ViewBag.ErrorMessage</div>
+    </div>
+}
+<a asp-area="@AreaNames.Admin" asp-controller="Site" asp-action="Index" class="btn btn-default btn-sm">Back to List</a>
