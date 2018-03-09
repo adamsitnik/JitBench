@@ -17,7 +17,7 @@
     <AspNetVersion>2.0.0</AspNetVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RuntimeFrameworkVersion)' == '' ">
-    <RuntimeFrameworkVersion>2.1.0-*</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>

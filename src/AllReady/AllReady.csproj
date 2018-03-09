@@ -3,7 +3,8 @@
   <Import Project="..\..\build\webapp.props" />
   <PropertyGroup>
     <Description>AllReady</Description>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>$(JITBENCH_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
+    <TargetFramework Condition="'$(TargetFramework)'==''">netcoreapp2.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>AllReady</AssemblyName>
     <OutputType>Exe</OutputType>

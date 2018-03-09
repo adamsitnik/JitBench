@@ -2,6 +2,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using JitBench;
+using System;
 
 namespace AllReady
 {
@@ -12,7 +13,7 @@ namespace AllReady
             var jitBench = JitBenchHelper.Start();
 
             var config = new ConfigurationBuilder()
-               .AddCommandLine(args)
+               .AddCommandLine(Array.Empty<string>())
                .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                .Build();
 
@@ -20,7 +21,7 @@ namespace AllReady
 
             jitBench.LogStartup();
 
-            jitBench.MakeRequests("http://localhost:5000");
+            jitBench.MakeRequests("http://localhost:5000", args);
 
             jitBench.VerifyLibraryLocation();
         }

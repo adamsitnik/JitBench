@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using JitBench;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +14,7 @@ namespace MusicStore
             var jitBench = JitBenchHelper.Start();
 
             var config = new ConfigurationBuilder()
-                .AddCommandLine(args)
+                .AddCommandLine(Array.Empty<string>())
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                 .Build();
 
@@ -35,7 +36,7 @@ namespace MusicStore
 
             jitBench.LogStartup();
 
-            jitBench.MakeRequests("http://localhost:5000");
+            jitBench.MakeRequests("http://localhost:5000", args);
             
             jitBench.VerifyLibraryLocation();
         }

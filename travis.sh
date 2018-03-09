@@ -13,10 +13,13 @@ then
 fi
 
 echo "Installing latest dotnet"
-./dotnet-install.sh -sharedruntime -runtimeid "$shared_framework_runtime" -installdir .dotnet -channel master -architecture x64
-source ./dotnet-install.sh -installdir .dotnet -channel master -architecture x64
+./dotnet-install.sh -sharedruntime -runtimeid "$shared_framework_runtime" -installdir .dotnet -version 2.0.0 -architecture x64
+source ./dotnet-install.sh -installdir .dotnet -version 2.0.0 -architecture x64
 
 dotnet --info
+
+echo "Applying workaround for SDK bug 1682"
+cp ./CreateStore/bugfix_sdk_1682/Microsoft.NET.ComposeStore.targets ./.dotnet/sdk/2.0.0/Sdks/Microsoft.NET.Sdk/build/Microsoft.NET.ComposeStore.targets
 
 echo "Creating local package store"
 source ./aspnet-generatestore.sh -i .store --arch x64 -r "$runtime"
@@ -32,9 +35,9 @@ echo "Running MusicStore"
 cd bin/Release/netcoreapp2.1/publish
 output=$(dotnet ./MusicStore.dll | tee /dev/tty; exit ${PIPESTATUS[0]})
 
-if [[ "$output" != *"ASP.NET loaded from store"* ]]
+if [[ "$output" == *"ASP.NET loaded from bin"* ]]
 then
-    echo "ASP.NET was not loaded from the store. This is a bug."
+    echo "ASP.NET was not loaded from the store. This is a bug. CI will now fail."
     exit 1
 fi
 
