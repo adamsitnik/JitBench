@@ -22,7 +22,7 @@ namespace AllReady
 
             jitBench.LogStartup();
 
-            jitBench.MakeRequests("http://localhost:5000", args);
+            jitBench.PerformHttpRequests("http://localhost:5000", args, new int[] { 100, 250, 500, 750, 1000, 1500, 2000 });
 
             jitBench.VerifyLibraryLocation();
         }

@@ -71,7 +71,7 @@ namespace JitBench
             eventSource.ServerStartupEnd(serverStartupTime);
         }
 
-        public void MakeRequests(string url, string[] args)
+        public void PerformHttpRequests(string url, string[] args, int[] threshholds)
         {
             using (var client = new HttpClient())
             {
@@ -94,7 +94,6 @@ namespace JitBench
 
                 if (args.Length == 0 || args[0] != "-skipSteadyState")
                 {
-                    int[] threshholds = new int[] { 100, 250, 500, 750, 1000, 1500, 2000, 3000, 5000, 10000 };
                     double totalTimeMs = serverStartupTime + firstRequestTime;
                     int totalRequests = 1;
                     Console.WriteLine("========== Steady State Performance ==========");
@@ -106,7 +105,7 @@ namespace JitBench
                     {
                         int iterationRequests = threshholds[i] - totalRequests;
                         eventSource.RequestBatchBegin(i, iterationRequests);
-                        MeasureThroughput(client, iterationRequests, out double batchTotalTimeMs, out double minRequestTime, out double meanRequestTimeMs, out double medianRequestTimeMs, out double maxRequestTime, out double standardErrorMs);
+                        MeasureThroughput(client, url, iterationRequests, out double batchTotalTimeMs, out double minRequestTime, out double meanRequestTimeMs, out double medianRequestTimeMs, out double maxRequestTime, out double standardErrorMs);
                         eventSource.RequestBatchEnd(i, iterationRequests, (int)batchTotalTimeMs, minRequestTime, meanRequestTimeMs, medianRequestTimeMs, maxRequestTime, standardErrorMs);
                         totalTimeMs += batchTotalTimeMs;
                         Console.WriteLine("{0,5:D}-{1,5:D}   {2,18:D}   {3,5:F}   {4,11:F}   {5,12:F}   {6,14:F}   {7,11:F}   {8,6:F}",
@@ -117,11 +116,10 @@ namespace JitBench
                     Console.WriteLine();
                     Console.WriteLine("Tip: If you only care about startup performance, use the -skipSteadyState argument to skip these measurements");
                 }
-
             }
         }
 
-        private static void MeasureThroughput(HttpClient client, int countRequests, out double batchTotalTimeMs, out double minRequestTimeMs, out double meanRequestTimeMs, out double medianRequestTimeMs, out double maxRequestTimeMs, out double standardErrorMs)
+        private static void MeasureThroughput(HttpClient client, string url, int countRequests, out double batchTotalTimeMs, out double minRequestTimeMs, out double meanRequestTimeMs, out double medianRequestTimeMs, out double maxRequestTimeMs, out double standardErrorMs)
         {
             double[] requestTimes = new double[countRequests];
             var requestTime = Stopwatch.StartNew();
@@ -129,7 +127,7 @@ namespace JitBench
             for (int i = 0; i < countRequests; i++)
             {
                 requestTime.Restart();
-                var response = client.GetAsync("http://localhost:5000").Result;
+                var response = client.GetAsync(url).Result;
                 requestTime.Stop();
 
                 requestTimes[i] = requestTime.ElapsedTicks * 1000.0 / Stopwatch.Frequency;

@@ -36,7 +36,7 @@ namespace MusicStore
 
             jitBench.LogStartup();
 
-            jitBench.MakeRequests("http://localhost:5000", args);
+            jitBench.PerformHttpRequests("http://localhost:5000", args, new int[] { 100, 250, 500, 750, 1000, 1500, 2000, 3000, 5000, 10000 });
             
             jitBench.VerifyLibraryLocation();
         }
