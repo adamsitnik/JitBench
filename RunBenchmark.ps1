@@ -6,6 +6,8 @@ param(
     [string] $FrameworkSdkVersion = "<auto>",
     [string] $Architecture = "x64",
     [string] $Rid = "win7-x64",
+    [string] $WebAppFolder = "src\MusicStore",
+    [string] $WebAppDllName = "MusicStore.dll",
     [switch] $PrecompiledViews,
     [string] $PrivateCoreCLRBinDirPath,
     [switch] $SetupOnly,
@@ -88,8 +90,8 @@ $ManifestPath = [System.IO.Path]::Combine($InstallDir, $Architecture, $vars.Item
 Write-Host ""
 
 
-Write-Host -ForegroundColor Green " ***** Step 4 - Restore MusicStore *******"
-$cmd = "cd src\MusicStore"
+Write-Host -ForegroundColor Green " ***** Step 4 - Restore Web App *******"
+$cmd = "cd " + $WebAppFolder
 Run-Cmd $cmd
 
 $cmd = "dotnet restore"
@@ -97,7 +99,7 @@ Run-Cmd $cmd
 Write-Host ""
 
 
-Write-Host -ForegroundColor Green " ***** Step 5 - Publish MusicStore *******"
+Write-Host -ForegroundColor Green " ***** Step 5 - Publish Web App *******"
 
 #Publish doesn't clean the results of old publishing before doing the new one. If you switch back and forth between
 #precompiled views the stale precompilation results will still be there. I assume asp.net uses them if they are present
@@ -122,7 +124,7 @@ Run-Cmd $cmd
 Write-Host ""
 
 
-Write-Host -ForegroundColor Green " ***** Step 6 - Run MusicStore *******"
+Write-Host -ForegroundColor Green " ***** Step 6 - Run Web App *******"
 if($SetupOnly -eq $true)
 {
     Write-Host "-SetupOnly flag was passed, skipping execution"
@@ -132,7 +134,7 @@ else
     $cmd = "cd " + $pathToPublishDir
     Run-Cmd $cmd
 
-    $cmd = "dotnet MusicStore.dll"
+    $cmd = "dotnet " + $WebAppDllName
     Run-Cmd $cmd
 }
 Write-Host ""
