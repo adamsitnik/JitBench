@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using JitBench;
 using System;
 
@@ -31,6 +32,11 @@ namespace AllReady
                 .UseConfiguration(configRoot)
                 .ConfigureAppConfiguration((ctx, config) => config.SetBasePath(ctx.HostingEnvironment.ContentRootPath).AddJsonFile("version.json"))
                 .UseStartup<Startup>()
+                .ConfigureLogging(factory =>
+                {
+                    factory.AddConsole();
+                    factory.AddFilter((category, level) => level >= LogLevel.Warning);
+                })
                 .Build();
     }
 }
