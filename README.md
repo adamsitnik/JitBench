@@ -104,9 +104,9 @@ This runs steps 1-5 in the -WhatIf output from above. You can now run dotnet Mus
 
 ### Use AllReady app
 
-MusicStore is the default app being executed with `RunBenchmark.ps1`. If you want to try the `AllReady` app you need to provide two extra arguments to the script:
+MusicStore is the default app being executed with `RunBenchmark.ps1`. If you want to try the `AllReady` app you need to provide one extra arguments to the script:
 
-`-WebAppFolder src\AllReady -WebAppDllName AllReady.dll`
+`-App AllReady`
 
 ### View Compilation
 

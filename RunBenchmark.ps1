@@ -6,8 +6,7 @@ param(
     [string] $FrameworkSdkVersion = "<auto>",
     [string] $Architecture = "x64",
     [string] $Rid = "win7-x64",
-    [string] $WebAppFolder = "src\MusicStore",
-    [string] $WebAppDllName = "MusicStore.dll",
+    [ValidateSet("MusicStore", "AllReady")][string] $App = "MusicStore",
     [switch] $PrecompiledViews,
     [string] $PrivateCoreCLRBinDirPath,
     [switch] $SetupOnly,
@@ -77,6 +76,14 @@ if($PrivateCoreCLRBinDirPath -ne "")
 
 Write-Host ""
 
+$WebAppFolder = "src\MusicStore"
+$WebAppDllName = "MusicStore.dll"
+
+if($App -ne "MusicStore")
+{
+    $WebAppFolder = "src\AllReady"
+    $WebAppDllName = "AllReady.dll"
+}
 
 Write-Host -ForegroundColor Green " ***** Step 3 - Generate Store *******"
 #Workaround for SDK bug 1682
